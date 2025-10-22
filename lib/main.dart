@@ -1,10 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/boardgame.controller.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
 import 'package:fastaval_app/controllers/settings.controller.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
 import 'package:fastaval_app/firebase_options.dart';
 import 'package:fastaval_app/screens/home.screen.dart';
 import 'package:fastaval_app/services/config.service.dart';
@@ -54,8 +55,8 @@ class MyApp extends StatelessWidget {
     // Setting the top bar in system to same color as app
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        systemNavigationBarColor: colorOrangeDark,
-        statusBarColor: colorOrangeDark,
+        systemNavigationBarColor: AppColors.primary,
+        statusBarColor: AppColors.primary,
         statusBarIconBrightness: Brightness.light,
       ),
     );
@@ -72,7 +73,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: Locale(Get.find<SettingsController>().language.value),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.orange, fontFamily: 'Roboto'),
+      theme: AppTheme.lightTheme,
       home: UpgradeAlert(child: HomeScreen()),
     );
   }

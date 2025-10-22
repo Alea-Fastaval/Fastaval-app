@@ -1,7 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/helpers/collections.dart';
 import 'package:fastaval_app/helpers/formatting.dart';
 import 'package:fastaval_app/models/activity_item.model.dart';
@@ -16,7 +17,7 @@ final programCtrl = Get.find<ProgramController>();
 final notificationController = Get.find<NotificationController>();
 
 Widget oneTextRow(String text) =>
-    Text(text, style: kNormalTextStyle, overflow: TextOverflow.ellipsis);
+    Text(text, style: AppTextStyles.normal, overflow: TextOverflow.ellipsis);
 
 Widget programListItem(
   ActivityItem activity,
