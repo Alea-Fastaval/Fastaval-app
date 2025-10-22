@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:flutter/material.dart';
@@ -16,17 +19,17 @@ class LoginScreen extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorOrangeDark,
-        foregroundColor: colorWhite,
+        backgroundColor: AppColors.primary,
+        foregroundColor: AppColors.background,
         toolbarHeight: 40,
         centerTitle: true,
-        titleTextStyle: kAppBarTextStyle,
+        titleTextStyle: AppTextStyles.appBarTitle,
         title: Text(tr('screenTitle.login')),
       ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: backgroundBoxDecorationStyle,
+        decoration: AppDecorations.backgroundImage,
         child: Padding(
           padding: EdgeInsets.fromLTRB(48, 100, 48, 0),
           child: SingleChildScrollView(
@@ -40,7 +43,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(height: 48),
                 _buildLoginButton(),
                 SizedBox(height: 16),
-                Text(tr('login.helpTitle'), style: kLabelStyle),
+                Text(tr('login.helpTitle'), style: AppTextStyles.label),
                 Text(textAlign: TextAlign.center, tr('login.helpText')),
               ],
             ),
@@ -73,11 +76,11 @@ class LoginScreen extends StatelessWidget {
   Widget _buildPasswordInput() => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(tr('login.password'), style: kLabelStyle),
+          Text(tr('login.password'), style: AppTextStyles.label),
           SizedBox(height: 10),
           Container(
             alignment: Alignment.centerLeft,
-            decoration: kTextBoxDecorationStyle,
+            decoration: AppDecorations.textBox,
             height: 60,
             child: TextField(
               controller: passwordInput,
@@ -89,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                 contentPadding: EdgeInsets.only(top: 14),
                 prefixIcon: Icon(Icons.lock, color: Colors.white),
                 hintText: tr('login.enterPassword'),
-                hintStyle: kHintTextStyle,
+                hintStyle: AppTextStyles.hint,
               ),
             ),
           ),
@@ -99,11 +102,11 @@ class LoginScreen extends StatelessWidget {
   Widget _buildUserIdInput() => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(tr('login.participantNumber'), style: kLabelStyle),
+          Text(tr('login.participantNumber'), style: AppTextStyles.label),
           SizedBox(height: 1),
           Container(
             alignment: Alignment.centerLeft,
-            decoration: kTextBoxDecorationStyle,
+            decoration: AppDecorations.textBox,
             height: 60,
             child: TextField(
               controller: userIdInput,
@@ -114,7 +117,7 @@ class LoginScreen extends StatelessWidget {
                 contentPadding: EdgeInsets.only(top: 14),
                 prefixIcon: Icon(Icons.portrait, color: Colors.white),
                 hintText: tr('login.enterParticipantNumber'),
-                hintStyle: kHintTextStyle,
+                hintStyle: AppTextStyles.hint,
               ),
             ),
           ),

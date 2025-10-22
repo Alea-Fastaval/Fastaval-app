@@ -1,6 +1,8 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
@@ -61,8 +63,8 @@ class HomeScreenState extends State<HomeScreen> {
             onTap: onNavClick,
             items: bottomNavItems(),
             selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-            backgroundColor: colorOrangeDark,
-            selectedItemColor: colorBlack,
+            backgroundColor: AppColors.primary,
+            selectedItemColor: AppColors.textPrimary,
             unselectedItemColor: Colors.black54,
           ),
         ),

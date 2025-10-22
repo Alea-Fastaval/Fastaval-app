@@ -97,7 +97,7 @@ Widget programListItem(
               programCtrl.favorites.contains(run.id)
                   ? CupertinoIcons.heart_fill
                   : CupertinoIcons.heart,
-              color: colorOrangeDark,
+              color: AppColors.primary,
             ),
           ),
         ),
@@ -113,9 +113,9 @@ Widget menuCard(
   showBadge = false,
 ]) {
   return Card(
-    surfaceTintColor: colorWhite,
-    color: colorWhite,
-    margin: kMenuCardMargin,
+    surfaceTintColor: AppColors.background,
+    color: AppColors.background,
+    margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
       side: BorderSide(color: Colors.black12, width: 1),
@@ -131,7 +131,7 @@ Widget menuCard(
               Icon(icon),
               Padding(
                 padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-                child: Text(title, style: kMenuCardHeaderStyle),
+                child: Text(title, style: AppTextStyles.menuCardHeader),
               ),
               if (showBadge)
                 Badge(
@@ -153,7 +153,7 @@ Widget textAndIconCard(String title, IconData icon, content) {
     decoration: BoxDecoration(
       color: Color.fromRGBO(255, 255, 255, 0.5),
       borderRadius: BorderRadius.circular(20),
-      border: Border.all(color: colorWhite, width: 1),
+      border: Border.all(color: AppColors.background, width: 1),
     ),
     child: Column(
       children: [
@@ -164,7 +164,7 @@ Widget textAndIconCard(String title, IconData icon, content) {
             children: [
               Text(
                 title,
-                style: kCardHeaderStyle,
+                style: AppTextStyles.cardHeader,
                 overflow: TextOverflow.ellipsis,
               ),
               Icon(icon),
@@ -179,11 +179,11 @@ Widget textAndIconCard(String title, IconData icon, content) {
 
 Widget textAndTextCard(String title, String secondaryTitle, content) {
   return Container(
-    margin: kCardMargin,
+    margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
     decoration: BoxDecoration(
       color: Color.fromRGBO(255, 255, 255, 0.5),
       borderRadius: BorderRadius.circular(20),
-      border: Border.all(color: colorWhite, width: 1),
+      border: Border.all(color: AppColors.background, width: 1),
     ),
     child: Column(
       children: [
@@ -194,10 +194,10 @@ Widget textAndTextCard(String title, String secondaryTitle, content) {
             children: [
               Text(
                 title,
-                style: kCardHeaderStyle,
+                style: AppTextStyles.cardHeader,
                 overflow: TextOverflow.ellipsis,
               ),
-              Text(secondaryTitle, style: kNormalTextSubdued),
+              Text(secondaryTitle, style: AppTextStyles.normalSubdued),
             ],
           ),
         ),
@@ -209,11 +209,11 @@ Widget textAndTextCard(String title, String secondaryTitle, content) {
 
 Widget textAndItemCard(String title, Widget secondaryTitle, content) {
   return Container(
-    margin: kCardMargin,
+    margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
     decoration: BoxDecoration(
       color: Color.fromRGBO(255, 255, 255, 0.5),
       borderRadius: BorderRadius.circular(20),
-      border: Border.all(color: colorWhite, width: 1),
+      border: Border.all(color: AppColors.background, width: 1),
     ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -225,7 +225,7 @@ Widget textAndItemCard(String title, Widget secondaryTitle, content) {
             children: [
               Text(
                 title,
-                style: kCardHeaderStyle,
+                style: AppTextStyles.cardHeader,
                 overflow: TextOverflow.ellipsis,
               ),
               secondaryTitle,
@@ -244,7 +244,7 @@ Widget textRowHeader(String text) => Row(
         Expanded(
           child: Text(
             text,
-            style: kNormalTextBoldStyle,
+            style: AppTextStyles.normalBold,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -261,19 +261,19 @@ Widget twoTextRow(
     padding: EdgeInsets.only(left: sidePadding ? 8 : 0),
     child: Row(
       children: <Widget>[
-        Expanded(flex: 4, child: Text(textLeft, style: kNormalTextStyle)),
+        Expanded(flex: 4, child: Text(textLeft, style: AppTextStyles.normal)),
         Expanded(
           flex: 6,
           child: selectable
               ? SelectableText(
                   textRight,
                   textAlign: TextAlign.right,
-                  style: kNormalTextStyle,
+                  style: AppTextStyles.normal,
                 )
               : Text(
                   textRight,
                   textAlign: TextAlign.right,
-                  style: kNormalTextStyle,
+                  style: AppTextStyles.normal,
                 ),
         ),
       ],
@@ -284,7 +284,7 @@ Widget twoTextRow(
 Widget twoTextRowWithTapAction(String title, String link, Uri url) {
   return Row(
     children: <Widget>[
-      Expanded(flex: 11, child: Text(title, style: kNormalTextStyle)),
+      Expanded(flex: 11, child: Text(title, style: AppTextStyles.normal)),
       Expanded(
         flex: 9,
         child: GestureDetector(
@@ -299,7 +299,7 @@ Widget twoTextRowWithTapAction(String title, String link, Uri url) {
           child: Text(
             link,
             textAlign: TextAlign.right,
-            style: kNormalTextClickableStyle,
+            style: AppTextStyles.normalClickable,
           ),
         ),
       ),
@@ -355,8 +355,8 @@ Widget programItemDialog(BuildContext context) {
           ))
     ],
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-    backgroundColor: colorWhite,
-    surfaceTintColor: colorWhite,
+    backgroundColor: AppColors.background,
+    surfaceTintColor: AppColors.background,
     insetPadding: EdgeInsets.all(10),
     contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
     actionsPadding: EdgeInsets.all(5),
@@ -400,7 +400,7 @@ Widget programItemDialog(BuildContext context) {
                       programCtrl.favorites.contains(run.id)
                           ? CupertinoIcons.heart_fill
                           : CupertinoIcons.heart,
-                      color: colorOrangeDark,
+                      color: AppColors.primary,
                     ),
                   ),
                 ],

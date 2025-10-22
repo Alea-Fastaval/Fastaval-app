@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/app.constant.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/constants/app_constants.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -14,11 +17,11 @@ class InfoScreen extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorOrangeDark,
-        foregroundColor: colorWhite,
+        backgroundColor: AppColors.primary,
+        foregroundColor: AppColors.background,
         toolbarHeight: 40,
         centerTitle: true,
-        titleTextStyle: kAppBarTextStyle,
+        titleTextStyle: AppTextStyles.appBarTitle,
         title: Text(tr('screenTitle.info')),
       ),
       body: AnnotatedRegion<SystemUiOverlayStyle>(
@@ -30,7 +33,7 @@ class InfoScreen extends StatelessWidget {
               Container(
                 height: double.infinity,
                 width: double.infinity,
-                decoration: backgroundBoxDecorationStyle,
+                decoration: AppDecorations.backgroundImage,
               ),
               SizedBox(
                 height: double.infinity,
@@ -66,7 +69,7 @@ Widget _buildFastaWearCard() => textAndIconCard(
         child: Row(
           children: [
             Flexible(
-              child: Text(tr('info.fastaWear.text'), style: kNormalTextStyle),
+              child: Text(tr('info.fastaWear.text'), style: AppTextStyles.normal),
             ),
           ],
         ),
@@ -80,7 +83,7 @@ Widget _buildLostFoundCard() => textAndIconCard(
         padding: EdgeInsets.fromLTRB(16, 8, 24, 16),
         child: Row(
           children: [
-            Text(tr('info.lostAndFound.text'), style: kNormalTextStyle)
+            Text(tr('info.lostAndFound.text'), style: AppTextStyles.normal)
           ],
         ),
       ),
@@ -96,139 +99,139 @@ Widget _buildOpenHoursCard() => textAndIconCard(
             textRowHeader(tr('info.openHours.bar.title')),
             twoTextRow(
               tr('info.openHours.bar.day1'),
-              kServiceOpeningHours["bar"]!["day1"]!,
+              AppConstants.serviceOpeningHours["bar"]!["day1"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.openHours.boardGames.title')),
             twoTextRow(
               tr('info.openHours.boardGames.day1'),
-              kServiceOpeningHours["boardGames"]!["day1"]!,
+              AppConstants.serviceOpeningHours["boardGames"]!["day1"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.openHours.boardGames.day2'),
-              kServiceOpeningHours["boardGames"]!["day2"]!,
+              AppConstants.serviceOpeningHours["boardGames"]!["day2"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.openHours.information.title')),
             twoTextRow(
               tr('info.openHours.information.day1'),
-              kServiceOpeningHours["information"]!["day1"]!,
+              AppConstants.serviceOpeningHours["information"]!["day1"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.openHours.information.day2'),
-              kServiceOpeningHours["information"]!["day2"]!,
+              AppConstants.serviceOpeningHours["information"]!["day2"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.openHours.information.day3'),
-              kServiceOpeningHours["information"]!["day3"]!,
+              AppConstants.serviceOpeningHours["information"]!["day3"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.openHours.kiosk.title')),
             twoTextRow(
               tr('info.openHours.kiosk.day1'),
-              kServiceOpeningHours["kiosk"]!["day1"]!,
+              AppConstants.serviceOpeningHours["kiosk"]!["day1"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.openHours.kiosk.day2'),
-              kServiceOpeningHours["kiosk"]!["day2"]!,
+              AppConstants.serviceOpeningHours["kiosk"]!["day2"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.openHours.ottosLivingRoom.title')),
             twoTextRow(
               tr('info.openHours.ottosLivingRoom.day1'),
-              kServiceOpeningHours["ottosLivingRoom"]!["day1"]!,
+              AppConstants.serviceOpeningHours["ottosLivingRoom"]!["day1"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.openHours.coffeeCafe.title')),
             twoTextRow(
               tr('info.openHours.coffeeCafe.day1'),
-              kServiceOpeningHours["coffeeCafe"]!["day1"]!,
+              AppConstants.serviceOpeningHours["coffeeCafe"]!["day1"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.openHours.coffeeCafe.day2'),
-              kServiceOpeningHours["coffeeCafe"]!["day2"]!,
+              AppConstants.serviceOpeningHours["coffeeCafe"]!["day2"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.openHours.coffeeCafe.day3'),
-              kServiceOpeningHours["coffeeCafe"]!["day3"]!,
+              AppConstants.serviceOpeningHours["coffeeCafe"]!["day3"]!,
               sidePadding: true,
             ),
             SizedBox(height: 20),
-            SizedBox(height: 1, child: Divider(color: colorBlack)),
+            SizedBox(height: 1, child: Divider(color: AppColors.textPrimary)),
             SizedBox(height: 20),
             textRowHeader(tr('info.stores.store1.title')),
             twoTextRow(
               tr('info.stores.store1.day1'),
-              kStoreOpeningHours["store1"]!["day1"]!,
+              AppConstants.storeOpeningHours["store1"]!["day1"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.stores.store1.day2'),
-              kStoreOpeningHours["store1"]!["day2"]!,
+              AppConstants.storeOpeningHours["store1"]!["day2"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.stores.store1.day3'),
-              kStoreOpeningHours["store1"]!["day3"]!,
+              AppConstants.storeOpeningHours["store1"]!["day3"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.stores.store2.title')),
             twoTextRow(
               tr('info.stores.store2.day1'),
-              kStoreOpeningHours["store2"]!["day1"]!,
+              AppConstants.storeOpeningHours["store2"]!["day1"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.stores.store2.day2'),
-              kStoreOpeningHours["store2"]!["day2"]!,
+              AppConstants.storeOpeningHours["store2"]!["day2"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.stores.store2.day3'),
-              kStoreOpeningHours["store2"]!["day3"]!,
+              AppConstants.storeOpeningHours["store2"]!["day3"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.stores.store3.title')),
             twoTextRow(
               tr('info.stores.store3.day1'),
-              kStoreOpeningHours["store3"]!["day1"]!,
+              AppConstants.storeOpeningHours["store3"]!["day1"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.stores.store3.day2'),
-              kStoreOpeningHours["store3"]!["day2"]!,
+              AppConstants.storeOpeningHours["store3"]!["day2"]!,
               sidePadding: true,
             ),
             twoTextRow(
               tr('info.stores.store3.day3'),
-              kStoreOpeningHours["store3"]!["day3"]!,
+              AppConstants.storeOpeningHours["store3"]!["day3"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.stores.store4.title')),
             twoTextRow(
               tr('info.stores.store4.day1'),
-              kStoreOpeningHours["store4"]!["day1"]!,
+              AppConstants.storeOpeningHours["store4"]!["day1"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
             textRowHeader(tr('info.stores.store5.title')),
             twoTextRow(
               tr('info.stores.store5.day1'),
-              kStoreOpeningHours["store5"]!["day1"]!,
+              AppConstants.storeOpeningHours["store5"]!["day1"]!,
               sidePadding: true,
             ),
             SizedBox(height: 10),
@@ -246,26 +249,26 @@ Widget _buildSafeFastavalCard() => textAndIconCard(
           children: [
             twoTextRowWithTapAction(
               tr('info.safe.dutyGeneral'),
-              kDutyGeneralPhoneNumber["name"]!,
-              Uri(scheme: 'tel', path: kDutyGeneralPhoneNumber["value"]),
+              AppConstants.dutyGeneralPhoneNumber["name"]!,
+              Uri(scheme: 'tel', path: AppConstants.dutyGeneralPhoneNumber["value"]),
             ),
             SizedBox(height: 10),
             twoTextRowWithTapAction(
               tr('info.safe.heroForce'),
-              kHeroForcePhoneNumber["name"]!,
-              Uri(scheme: 'tel', path: kHeroForcePhoneNumber["value"]),
+              AppConstants.heroForcePhoneNumber["name"]!,
+              Uri(scheme: 'tel', path: AppConstants.heroForcePhoneNumber["value"]),
             ),
             SizedBox(height: 10),
             twoTextRowWithTapAction(
               tr('info.safe.safetyHost'),
-              kSafetyHostPhoneNumber["name"]!,
-              Uri(scheme: 'tel', path: kSafetyHostPhoneNumber["value"]),
+              AppConstants.safetyHostPhoneNumber["name"]!,
+              Uri(scheme: 'tel', path: AppConstants.safetyHostPhoneNumber["value"]),
             ),
             SizedBox(height: 10),
             twoTextRowWithTapAction(
               tr('info.safe.safetyMail'),
-              kSafeFastavalMail,
-              Uri(scheme: 'mailto', path: kSafeFastavalMail),
+              AppConstants.safeFastavalEmail,
+              Uri(scheme: 'mailto', path: AppConstants.safeFastavalEmail),
             ),
           ],
         ),
@@ -279,18 +282,18 @@ Widget _buildTransportCard() => textAndIconCard(
         padding: EdgeInsets.fromLTRB(16, 8, 24, 16),
         child: Column(
           children: [
-            Text(tr('info.transportAndParking.text'), style: kNormalTextStyle),
+            Text(tr('info.transportAndParking.text'), style: AppTextStyles.normal),
             SizedBox(height: 20),
             twoTextRowWithTapAction(
               tr('info.transportAndParking.taxi1'),
-              kTaxi1PhoneNumber['name']!,
-              Uri(scheme: 'tel', path: kTaxi1PhoneNumber['value']),
+              AppConstants.taxi1PhoneNumber['name']!,
+              Uri(scheme: 'tel', path: AppConstants.taxi1PhoneNumber['value']),
             ),
             SizedBox(height: 20),
             twoTextRowWithTapAction(
               tr('info.transportAndParking.taxi2'),
-              kTaxi2PhoneNumber['name']!,
-              Uri(scheme: 'tel', path: kTaxi2PhoneNumber['value']),
+              AppConstants.taxi2PhoneNumber['name']!,
+              Uri(scheme: 'tel', path: AppConstants.taxi2PhoneNumber['value']),
             ),
           ],
         ),
@@ -305,9 +308,9 @@ Widget _buildWifiCard() => textAndIconCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            twoTextRow(tr('info.wifi.networkName'), kWifiNetworkName),
+            twoTextRow(tr('info.wifi.networkName'), AppConstants.wifiNetworkName),
             SizedBox(height: 10),
-            Text(tr('info.wifi.explainer'), style: kNormalTextStyle),
+            Text(tr('info.wifi.explainer'), style: AppTextStyles.normal),
           ],
         ),
       ),

@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
 import 'package:fastaval_app/helpers/collections.dart';
 import 'package:fastaval_app/models/activity_run.model.dart';
@@ -16,15 +18,15 @@ class ProgramScreen extends StatelessWidget {
           length: programCtrl.eventDates.length,
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: colorOrangeDark,
-              foregroundColor: colorWhite,
+              backgroundColor: AppColors.primary,
+              foregroundColor: AppColors.background,
               toolbarHeight: 40,
               centerTitle: true,
-              titleTextStyle: kAppBarTextStyle,
+              titleTextStyle: AppTextStyles.appBarTitle,
               title: Text(tr('screenTitle.program')),
               bottom: PreferredSize(
                 preferredSize: _tabBar.preferredSize,
-                child: ColoredBox(color: colorWhite, child: _tabBar),
+                child: ColoredBox(color: AppColors.background, child: _tabBar),
               ),
             ),
             body: TabBarView(
@@ -36,11 +38,11 @@ class ProgramScreen extends StatelessWidget {
   }
 
   TabBar get _tabBar => TabBar(
-        labelColor: colorBlack,
+        labelColor: AppColors.textPrimary,
         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
         labelStyle: TextStyle(fontWeight: FontWeight.bold),
         indicatorSize: TabBarIndicatorSize.tab,
-        indicatorColor: colorOrange,
+        indicatorColor: AppColors.secondary,
         tabs: programCtrl.eventDates.map((day) {
           DateTime date = DateTime.parse(day);
           String weekday = getDayNameShort(date);

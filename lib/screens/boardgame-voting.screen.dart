@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/boardgame.controller.dart';
 import 'package:fastaval_app/models/activity.model.dart';
@@ -22,7 +25,7 @@ class BoardgameVotingScreen extends StatelessWidget {
       ),
       body: Container(
         height: double.infinity,
-        decoration: backgroundBoxDecorationStyle,
+        decoration: AppDecorations.backgroundImage,
         padding: EdgeInsets.fromLTRB(8, 16, 8, 0),
         child: Obx(() {
           return Column(

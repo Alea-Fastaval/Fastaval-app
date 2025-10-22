@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
 import 'package:fastaval_app/helpers/collections.dart';
@@ -20,16 +23,16 @@ class FavoritesScreen extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorOrangeDark,
-        foregroundColor: colorWhite,
+        backgroundColor: AppColors.primary,
+        foregroundColor: AppColors.background,
         toolbarHeight: 40,
         centerTitle: true,
-        titleTextStyle: kAppBarTextStyle,
+        titleTextStyle: AppTextStyles.appBarTitle,
         title: Text(tr('screenTitle.favorites')),
       ),
       body: Container(
         height: double.infinity,
-        decoration: backgroundBoxDecorationStyle,
+        decoration: AppDecorations.backgroundImage,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),
           child: Column(
@@ -72,7 +75,7 @@ class FavoritesScreen extends StatelessWidget {
             ],
           )
         : Padding(
-            child: Text(tr('favorites.noFavorites'), style: kNormalTextStyle),
+            child: Text(tr('favorites.noFavorites'), style: AppTextStyles.normal),
             padding: EdgeInsets.fromLTRB(16, 48, 16, 48),
           );
   }
@@ -130,8 +133,8 @@ class FavoritesScreen extends StatelessWidget {
                           child: Text(
                             "$activityType @ ${run.localeName}",
                             style: expired
-                                ? kNormalTextSubduedExpired
-                                : kNormalTextSubdued,
+                                ? AppTextStyles.normalSubduedExpired
+                                : AppTextStyles.normalSubdued,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -140,7 +143,7 @@ class FavoritesScreen extends StatelessWidget {
                     Text(
                       title,
                       overflow: TextOverflow.ellipsis,
-                      style: expired ? kNormalTextDisabled : kNormalTextStyle,
+                      style: expired ? AppTextStyles.normalDisabled : AppTextStyles.normal,
                     ),
                   ],
                 ),
@@ -205,8 +208,8 @@ class FavoritesScreen extends StatelessWidget {
               ],
             ))
       ],
-      backgroundColor: colorWhite,
-      surfaceTintColor: colorWhite,
+      backgroundColor: AppColors.background,
+      surfaceTintColor: AppColors.background,
       titlePadding: EdgeInsets.fromLTRB(0, 0, 0, 5),
       title: Stack(
         children: [

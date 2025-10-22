@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/settings.controller.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +21,7 @@ class SettingsScreen extends StatelessWidget {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: backgroundBoxDecorationStyle,
+          decoration: AppDecorations.backgroundImage,
           child: SizedBox(
             height: double.infinity,
             child: SingleChildScrollView(
@@ -37,7 +40,7 @@ class SettingsScreen extends StatelessWidget {
     return Card(
       surfaceTintColor: Colors.white,
       color: Colors.white,
-      margin: kMenuCardMargin,
+      margin: const EdgeInsets.fromLTRB(16, 8, 16, 0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
         side: BorderSide(color: Colors.black12, width: 1),
@@ -62,7 +65,7 @@ class SettingsScreen extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(0, 0, 8, 0),
                   child: Icon(icon),
                 ),
-                Text(title, style: kMenuCardHeaderStyle),
+                Text(title, style: AppTextStyles.menuCardHeader),
               ],
             ),
           ),
