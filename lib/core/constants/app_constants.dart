@@ -1,4 +1,13 @@
-/// Application-wide constants for the Fastaval app
+/// Application-wide constants for the Fastaval app.
+///
+/// This class contains configuration values, contact information,
+/// and operational data used throughout the application.
+///
+/// Example usage:
+/// ```dart
+/// final wifiName = AppConstants.wifiNetworkName;
+/// final email = AppConstants.safeFastavalEmail;
+/// ```
 class AppConstants {
   // Private constructor to prevent instantiation
   AppConstants._();

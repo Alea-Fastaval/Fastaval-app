@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 
-/// Color palette for the Fastaval app
+/// Color palette for the Fastaval app.
+///
+/// This class provides a centralized location for all color values used
+/// throughout the application. Using these constants ensures visual consistency
+/// and makes it easy to update the app's color scheme.
+///
+/// Example usage:
+/// ```dart
+/// Container(
+///   color: AppColors.primary,
+///   child: Text('Hello', style: TextStyle(color: AppColors.onPrimary)),
+/// )
+/// ```
 class AppColors {
   // Private constructor to prevent instantiation
   AppColors._();

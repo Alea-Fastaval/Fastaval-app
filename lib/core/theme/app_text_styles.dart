@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:fastaval_app/core/theme/app_colors.dart';
 
-/// Text styles used throughout the Fastaval app
+/// Text styles used throughout the Fastaval app.
+///
+/// This class provides consistent text styling across the application.
+/// All text styles are defined here to maintain visual consistency and
+/// make it easy to update typography throughout the app.
+///
+/// Example usage:
+/// ```dart
+/// Text('Hello World', style: AppTextStyles.normal)
+/// Text('Header', style: AppTextStyles.cardHeader)
+/// ```
 class AppTextStyles {
   // Private constructor to prevent instantiation
   AppTextStyles._();

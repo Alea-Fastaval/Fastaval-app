@@ -2,7 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:fastaval_app/core/theme/app_colors.dart';
 import 'package:fastaval_app/core/theme/app_text_styles.dart';
 
-/// Central theme configuration for the Fastaval app
+/// Central theme configuration for the Fastaval app.
+///
+/// This class provides the main ThemeData configuration used throughout
+/// the application. It defines the overall look and feel including colors,
+/// text styles, and component themes.
+///
+/// The theme is applied in the main.dart file:
+/// ```dart
+/// MaterialApp(
+///   theme: AppTheme.lightTheme,
+///   // ...
+/// )
+/// ```
 class AppTheme {
   // Private constructor to prevent instantiation
   AppTheme._();
@@ -69,7 +81,18 @@ class AppTheme {
   }
 }
 
-/// Spacing and sizing constants
+/// Spacing and sizing constants for consistent layout.
+///
+/// This class provides standardized spacing values to maintain
+/// visual consistency throughout the application.
+///
+/// Example usage:
+/// ```dart
+/// Padding(
+///   padding: AppSpacing.cardPadding,
+///   child: Text('Content'),
+/// )
+/// ```
 class AppSpacing {
   // Private constructor
   AppSpacing._();
