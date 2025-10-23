@@ -38,10 +38,10 @@ void main() async {
   runApp(
     EasyLocalization(
       startLocale: Locale(Get.find<SettingsController>().language.value),
-      supportedLocales: [Locale('da'), Locale('en')],
+      supportedLocales: const [Locale('da'), Locale('en')],
       path: 'assets/translations',
       useOnlyLangCode: true,
-      fallbackLocale: Locale('en'),
+      fallbackLocale: const Locale('en'),
       child: MyApp(),
     ),
   );
@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
       locale: Locale(Get.find<SettingsController>().language.value),
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: UpgradeAlert(child: HomeScreen()),
+      home: const UpgradeAlert(child: HomeScreen()),
     );
   }
 }
