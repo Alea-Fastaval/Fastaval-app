@@ -33,16 +33,16 @@ class UserService {
     }
   }
 
-  setUser(User user) {
+  void setUser(User user) {
     String userString = jsonEncode(user);
     storageService.setString(kUserKey, userString);
   }
 
-  removeUser() {
+  void removeUser() {
     storageService.deleteString(kUserKey);
   }
 
-  registerToInfosys(User user) {
+  void registerToInfosys(User user) {
     registerAppToInfosys(user);
   }
 

@@ -1,6 +1,9 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
 import 'package:fastaval_app/controllers/settings.controller.dart';
@@ -25,8 +28,8 @@ class ProfileScreen extends StatelessWidget {
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorOrangeDark,
-        foregroundColor: colorWhite,
+        backgroundColor: AppColors.primary,
+        foregroundColor: AppColors.background,
         toolbarHeight: 40,
         centerTitle: true,
         actions: [
@@ -39,11 +42,11 @@ class ProfileScreen extends StatelessWidget {
                 : Text(''),
           ),
         ],
-        titleTextStyle: kAppBarTextStyle,
+        titleTextStyle: AppTextStyles.appBarTitle,
         title: Text(tr('screenTitle.profile')),
       ),
       body: Container(
-        decoration: backgroundBoxDecorationStyle,
+        decoration: AppDecorations.backgroundImage,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),
           child: Column(
@@ -74,7 +77,7 @@ class ProfileScreen extends StatelessWidget {
                   height: 80,
                   decoration: BoxDecoration(
                     color: Color.fromRGBO(255, 255, 255, 0.41),
-                    border: Border.all(color: colorWhite, width: 1),
+                    border: Border.all(color: AppColors.background, width: 1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
@@ -98,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                         appCtrl.user.id.toString(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: colorBlack,
+                          color: AppColors.textPrimary,
                           fontSize: 58,
                           fontWeight: FontWeight.bold,
                         ),
@@ -112,7 +115,7 @@ class ProfileScreen extends StatelessWidget {
                     Text(
                       tr('profile.participantNumber'),
                       style: TextStyle(
-                        color: colorOrange,
+                        color: AppColors.secondary,
                         fontSize: 21,
                         fontWeight: FontWeight.bold,
                       ),
@@ -151,19 +154,19 @@ class ProfileScreen extends StatelessWidget {
                 height: 20,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
-                  color: colorOrangeDark,
+                  color: AppColors.primary,
                 ),
               )
             : Text(
                 "${tr('common.updated')} ${formatDay(appCtrl.userUpdateTime.value)} ${formatTime(appCtrl.userUpdateTime.value)}",
-                style: kNormalTextSubdued,
+                style: AppTextStyles.normalSubdued,
               ),
         appCtrl.user.scheduling.isNotEmpty
             ? buildUsersProgramItems(appCtrl.user.scheduling)
             : Padding(
                 padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
                 child:
-                    Text(tr('profile.noProgramItems'), style: kNormalTextStyle),
+                    Text(tr('profile.noProgramItems'), style: AppTextStyles.normal),
               ),
       ));
 
@@ -238,8 +241,8 @@ class ProfileScreen extends StatelessWidget {
                           child: Text(
                             "$activityType @ $room",
                             style: expired
-                                ? kNormalTextSubduedExpired
-                                : kNormalTextSubdued,
+                                ? AppTextStyles.normalSubduedExpired
+                                : AppTextStyles.normalSubdued,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -248,7 +251,7 @@ class ProfileScreen extends StatelessWidget {
                     Text(
                       title,
                       overflow: TextOverflow.ellipsis,
-                      style: expired ? kNormalTextDisabled : kNormalTextStyle,
+                      style: expired ? AppTextStyles.normalDisabled : AppTextStyles.normal,
                     ),
                   ],
                 ),
@@ -280,7 +283,7 @@ class ProfileScreen extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: foodList.isNotEmpty
                 ? Text(tr('program.food.ordered'))
-                : Text(tr('program.food.notOrdered'), style: kNormalTextStyle),
+                : Text(tr('program.food.notOrdered'), style: AppTextStyles.normal),
           ),
           foodList.isEmpty
               ? SizedBox(height: 0)
@@ -346,8 +349,8 @@ class ProfileScreen extends StatelessWidget {
                             : foodItem.titleEn,
                         overflow: TextOverflow.ellipsis,
                         style: foodItem.received == 0
-                            ? kNormalTextStyle
-                            : kNormalTextDisabled,
+                            ? AppTextStyles.normal
+                            : AppTextStyles.normalDisabled,
                       ),
                     ],
                   ),
@@ -357,8 +360,8 @@ class ProfileScreen extends StatelessWidget {
                     Text(
                       tr('profile.foodTicket'),
                       style: foodItem.received == 0
-                          ? kNormalTextStyle
-                          : kNormalTextDisabled,
+                          ? AppTextStyles.normal
+                          : AppTextStyles.normalDisabled,
                     ),
                     SizedBox(width: 8),
                     Icon(
@@ -405,14 +408,14 @@ class ProfileScreen extends StatelessWidget {
         Flexible(
           child: Text(
             title,
-            style: kNormalTextStyle,
+            style: AppTextStyles.normal,
             overflow: TextOverflow.ellipsis,
           ),
         ),
         SizedBox(width: 8),
         Text(
           tr('profile.wear.received.${item.received}'),
-          style: kNormalTextBoldStyle,
+          style: AppTextStyles.normalBold,
         ),
       ],
     );
@@ -460,8 +463,8 @@ class ProfileScreen extends StatelessWidget {
           child: Text(tr('common.close')),
         ),
       ],
-      backgroundColor: colorWhite,
-      surfaceTintColor: colorWhite,
+      backgroundColor: AppColors.background,
+      surfaceTintColor: AppColors.background,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       titlePadding: EdgeInsets.all(0),
       title: Column(
@@ -490,17 +493,17 @@ class ProfileScreen extends StatelessWidget {
         children: [
           Text(
             context.locale.languageCode == 'da' ? food.textDa : food.textEn,
-            style: kNormalTextStyle,
+            style: AppTextStyles.normal,
           ),
           if (food.titleEn.contains('Breakfast'))
-            Text(tr('profile.breakfastText'), style: kNormalTextSubdued),
+            Text(tr('profile.breakfastText'), style: AppTextStyles.normalSubdued),
           SizedBox(height: 10),
           if (foodAvailable == false)
-            Text(tr('profile.foodHandedOut'), style: kNormalTextSubdued),
+            Text(tr('profile.foodHandedOut'), style: AppTextStyles.normalSubdued),
           if (foodAvailable)
             Text(
               "${tr('profile.handout')}: ${formatDay(food.time)} ${formatTime(food.time)} - ${formatTime(food.timeEnd)}",
-              style: kNormalTextSubdued,
+              style: AppTextStyles.normalSubdued,
             ),
           if (foodAvailable) SizedBox(height: 10),
           if (foodAvailable)
@@ -510,7 +513,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           if (foodAvailable) SizedBox(height: 30),
           if (foodAvailable)
-            Text(tr('profile.scanBarcode'), style: kNormalTextSubdued),
+            Text(tr('profile.scanBarcode'), style: AppTextStyles.normalSubdued),
         ],
       ),
     );
@@ -555,8 +558,8 @@ class ProfileScreen extends StatelessWidget {
             ))
       ],
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      backgroundColor: colorWhite,
-      surfaceTintColor: colorWhite,
+      backgroundColor: AppColors.background,
+      surfaceTintColor: AppColors.background,
       insetPadding: EdgeInsets.all(10),
       actionsPadding: EdgeInsets.all(5),
       contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),

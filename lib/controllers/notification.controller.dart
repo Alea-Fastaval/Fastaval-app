@@ -13,7 +13,7 @@ class NotificationController extends GetxController {
   RxInt notificationListUpdatedAt = 0.obs;
   final appController = Get.find<AppController>();
 
-  init() {
+  void init() {
     if (appController.loggedIn.value) {
       getNotifications();
     }
@@ -25,7 +25,7 @@ class NotificationController extends GetxController {
     });
   }
 
-  getNotificationsAndSetWaiting() {
+  void getNotificationsAndSetWaiting() {
     _fetchNotifications().then(
       (notificationList) => {
         _updateNotificationList(notificationList),
@@ -34,22 +34,22 @@ class NotificationController extends GetxController {
     );
   }
 
-  getNotifications() {
+  void getNotifications() {
     _fetchNotifications().then(
       (notificationList) => _updateNotificationList(notificationList),
     );
   }
 
-  setNotificationWaiting() {
+  void setNotificationWaiting() {
     notificationsWaiting(true);
   }
 
-  clearNotificationsWaiting() {
+  void clearNotificationsWaiting() {
     notificationsOnLastClear(notificationList.length);
     notificationsWaiting(false);
   }
 
-  _updateNotificationList(List<InfosysNotification> notifications) {
+  void _updateNotificationList(List<InfosysNotification> notifications) {
     notificationList(notifications);
     notificationListUpdatedAt(
       (DateTime.now().millisecondsSinceEpoch / 1000).round(),

@@ -22,21 +22,21 @@ class BoardGameController extends GetxController {
   RxBool showSearchClear = false.obs;
   RxBool isLoading = false.obs;
 
-  init() {
+  void init() {
     getBoardGames();
     fetchAndSetInitialRankings();
   }
 
-  getBoardGames() {
+  void getBoardGames() {
     fetchBoardgames().then((gamesList) => _updateBoardgameList(gamesList));
   }
 
-  _updateBoardgameList(List<Boardgame> gamesList) {
+  void _updateBoardgameList(List<Boardgame> gamesList) {
     boardgameList(gamesList);
     listUpdatedAt((DateTime.now().millisecondsSinceEpoch / 1000).round());
   }
 
-  applyFilterToList([String? filter]) {
+  void applyFilterToList([String? filter]) {
     showSearchClear(filter != null && filter.isNotEmpty);
 
     filteredList(
