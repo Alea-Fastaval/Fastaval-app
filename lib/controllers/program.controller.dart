@@ -19,7 +19,7 @@ class ProgramController extends GetxController {
   RxMap activityRunForDay = {}.obs;
   RxList<String> eventDates = <String>[].obs;
 
-  init() async {
+  Future<void> init() async {
     eventDates.value = ConfigService.instance.getDates();
 
     for (String day in eventDates) {
@@ -29,7 +29,7 @@ class ProgramController extends GetxController {
     await getFavoritesFromStorage();
   }
 
-  addDayToList(day) async {
+  Future<void> addDayToList(day) async {
     await activitiesService.getDay(day).then((list) {
       List runlist = [];
       activityItemForDay[day] = list;
@@ -53,13 +53,13 @@ class ProgramController extends GetxController {
     });
   }
 
-  getFavoritesFromStorage() async {
+  Future<void> getFavoritesFromStorage() async {
     await activitiesService.retrieveFavorites().then((favoritesList) {
       favorites(favoritesList);
     });
   }
 
-  toggleFavorite(int id) {
+  void toggleFavorite(int id) {
     favorites.contains(id) ? favorites.remove(id) : favorites.add(id);
 
     activitiesService.storeFavorites(favorites.toList());

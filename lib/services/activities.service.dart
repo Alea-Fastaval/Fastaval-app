@@ -15,7 +15,7 @@ class ActivitiesService {
     return favoritesString == '' ? [] : jsonDecode(favoritesString);
   }
 
-  storeFavorites(List favorites) {
+  void storeFavorites(List favorites) {
     String favoritesString = jsonEncode(favorites);
     storageService.setString(kFavoritesKey, favoritesString);
   }

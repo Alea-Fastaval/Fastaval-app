@@ -16,15 +16,15 @@ class AppController extends GetxController {
   final Rx<PackageInfo?> packageInfo = Rx<PackageInfo?>(null);
   User user = User();
 
-  updateLoggedIn(bool status) {
+  void updateLoggedIn(bool status) {
     loggedIn(status);
   }
 
-  updateNavIndex(int index) {
+  void updateNavIndex(int index) {
     navIndex(index);
   }
 
-  updateUser(User updatedUser) {
+  void updateUser(User updatedUser) {
     user = updatedUser;
     userUpdateTime((DateTime.now().millisecondsSinceEpoch / 1000).round());
   }
@@ -37,7 +37,7 @@ class AppController extends GetxController {
     }
   }
 
-  init() async {
+  Future<void> init() async {
     await fetchPackageInfo();
     await UserService().getUserFromStorage().then(
           (newUser) => {
@@ -47,7 +47,7 @@ class AppController extends GetxController {
     await updateUserProfile();
   }
 
-  updateUserProfile() async {
+  Future<void> updateUserProfile() async {
     if (user.id == 0) return;
 
     fetchingUser(true);
@@ -74,7 +74,7 @@ class AppController extends GetxController {
     }
   }
 
-  logout() {
+  void logout() {
     var boardCtrl = Get.find<BoardGameController>();
     UserService().removeUser();
     user.id = 0;
