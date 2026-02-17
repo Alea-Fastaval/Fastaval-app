@@ -3,8 +3,8 @@ import 'package:fastaval_app/helpers/formatting.dart';
 import 'package:fastaval_app/models/activity_item.model.dart';
 import 'package:fastaval_app/models/activity_run.model.dart';
 import 'package:fastaval_app/services/activities.service.dart';
-import 'package:fastaval_app/services/local_storage.service.dart';
 import 'package:fastaval_app/services/config.service.dart';
+import 'package:fastaval_app/services/local_storage.service.dart';
 import 'package:get/get.dart';
 
 class ProgramController extends GetxController {

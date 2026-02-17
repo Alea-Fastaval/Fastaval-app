@@ -1,9 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/core/theme/app_colors.dart';
-import 'package:fastaval_app/core/theme/app_text_styles.dart';
-import 'package:fastaval_app/core/theme/app_theme.dart';
-import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/settings.controller.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

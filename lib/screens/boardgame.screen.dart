@@ -1,9 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/core/theme/app_colors.dart';
-import 'package:fastaval_app/core/theme/app_text_styles.dart';
-import 'package:fastaval_app/core/theme/app_theme.dart';
-import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/boardgame.controller.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/helpers/formatting.dart';
 import 'package:fastaval_app/models/boardgame.model.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
@@ -155,7 +153,7 @@ class BoardgameScreen extends StatelessWidget {
     );
   }
 
-  _launchDDB(int gameID) async {
+  Future<void> _launchDDB(int gameID) async {
     if (gameID > 0) {
       final url = Uri.parse('https://boardgamegeek.com/boardgame/$gameID');
       if (await canLaunchUrl(url)) {

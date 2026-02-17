@@ -20,7 +20,7 @@ void main() {
     test('lightTheme should have correct font family', () {
       final theme = AppTheme.lightTheme;
 
-      expect(theme.fontFamily, equals('Roboto'));
+      expect(theme.textTheme.bodyLarge?.fontFamily, equals('Roboto'));
     });
 
     test('AppBarTheme should have correct background color', () {
@@ -39,11 +39,12 @@ void main() {
 
   group('AppSpacing Tests', () {
     test('cardMargin should have correct values', () {
-      expect(AppSpacing.cardMargin, equals(const EdgeInsets.fromLTRB(16, 8, 16, 0)));
+      expect(AppSpacing.cardMargin,
+          equals(const EdgeInsets.fromLTRB(16, 8, 16, 0)));
     });
 
     test('cardPadding should have correct values', () {
-      expect(AppSpacing.cardPadding, equals(const EdgeInsets.all(16.0)));
+      expect(AppSpacing.cardPadding, equals(const EdgeInsets.all(16)));
     });
 
     test('borderRadius should be 10.0', () {

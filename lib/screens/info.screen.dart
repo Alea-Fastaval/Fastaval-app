@@ -1,10 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:fastaval_app/core/constants/app_constants.dart';
 import 'package:fastaval_app/core/theme/app_colors.dart';
-import 'package:fastaval_app/core/theme/app_text_styles.dart';
-import 'package:fastaval_app/core/theme/app_theme.dart';
 import 'package:fastaval_app/core/theme/app_decorations.dart';
-import 'package:fastaval_app/controllers/notification.controller.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -69,7 +68,8 @@ Widget _buildFastaWearCard() => textAndIconCard(
         child: Row(
           children: [
             Flexible(
-              child: Text(tr('info.fastaWear.text'), style: AppTextStyles.normal),
+              child:
+                  Text(tr('info.fastaWear.text'), style: AppTextStyles.normal),
             ),
           ],
         ),
@@ -250,19 +250,25 @@ Widget _buildSafeFastavalCard() => textAndIconCard(
             twoTextRowWithTapAction(
               tr('info.safe.dutyGeneral'),
               AppConstants.dutyGeneralPhoneNumber["name"]!,
-              Uri(scheme: 'tel', path: AppConstants.dutyGeneralPhoneNumber["value"]),
+              Uri(
+                  scheme: 'tel',
+                  path: AppConstants.dutyGeneralPhoneNumber["value"]),
             ),
             SizedBox(height: 10),
             twoTextRowWithTapAction(
               tr('info.safe.heroForce'),
               AppConstants.heroForcePhoneNumber["name"]!,
-              Uri(scheme: 'tel', path: AppConstants.heroForcePhoneNumber["value"]),
+              Uri(
+                  scheme: 'tel',
+                  path: AppConstants.heroForcePhoneNumber["value"]),
             ),
             SizedBox(height: 10),
             twoTextRowWithTapAction(
               tr('info.safe.safetyHost'),
               AppConstants.safetyHostPhoneNumber["name"]!,
-              Uri(scheme: 'tel', path: AppConstants.safetyHostPhoneNumber["value"]),
+              Uri(
+                  scheme: 'tel',
+                  path: AppConstants.safetyHostPhoneNumber["value"]),
             ),
             SizedBox(height: 10),
             twoTextRowWithTapAction(
@@ -282,7 +288,8 @@ Widget _buildTransportCard() => textAndIconCard(
         padding: EdgeInsets.fromLTRB(16, 8, 24, 16),
         child: Column(
           children: [
-            Text(tr('info.transportAndParking.text'), style: AppTextStyles.normal),
+            Text(tr('info.transportAndParking.text'),
+                style: AppTextStyles.normal),
             SizedBox(height: 20),
             twoTextRowWithTapAction(
               tr('info.transportAndParking.taxi1'),
@@ -308,7 +315,8 @@ Widget _buildWifiCard() => textAndIconCard(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            twoTextRow(tr('info.wifi.networkName'), AppConstants.wifiNetworkName),
+            twoTextRow(
+                tr('info.wifi.networkName'), AppConstants.wifiNetworkName),
             SizedBox(height: 10),
             Text(tr('info.wifi.explainer'), style: AppTextStyles.normal),
           ],

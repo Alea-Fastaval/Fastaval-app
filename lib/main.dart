@@ -4,8 +4,8 @@ import 'package:fastaval_app/controllers/boardgame.controller.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
 import 'package:fastaval_app/controllers/settings.controller.dart';
-import 'package:fastaval_app/core/theme/app_theme.dart';
 import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_theme.dart';
 import 'package:fastaval_app/firebase_options.dart';
 import 'package:fastaval_app/screens/home.screen.dart';
 import 'package:fastaval_app/services/config.service.dart';
@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
       locale: Locale(Get.find<SettingsController>().language.value),
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const UpgradeAlert(child: HomeScreen()),
+      home: UpgradeAlert(child: const HomeScreen()),
     );
   }
 }

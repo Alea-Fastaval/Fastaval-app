@@ -490,14 +490,14 @@ PreferredSizeWidget commonAppBar({
   List<Widget>? actions,
 }) {
   return AppBar(
-    backgroundColor: colorOrangeDark,
-    foregroundColor: colorWhite,
+    backgroundColor: AppColors.primary,
+    foregroundColor: AppColors.onPrimary,
     toolbarHeight: 40,
     centerTitle: true,
-    titleTextStyle: kAppBarTextStyle,
+    titleTextStyle: AppTextStyles.appBarTitle,
     systemOverlayStyle: SystemUiOverlayStyle(
-      systemNavigationBarColor: colorOrangeDark,
-      statusBarColor: colorOrangeDark,
+      systemNavigationBarColor: AppColors.primary,
+      statusBarColor: AppColors.primary,
       statusBarIconBrightness: Brightness.light,
     ),
     title: Text(title),

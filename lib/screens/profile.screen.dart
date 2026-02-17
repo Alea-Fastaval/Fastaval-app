@@ -1,12 +1,11 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/core/theme/app_colors.dart';
-import 'package:fastaval_app/core/theme/app_text_styles.dart';
-import 'package:fastaval_app/core/theme/app_theme.dart';
-import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
 import 'package:fastaval_app/controllers/settings.controller.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/helpers/collections.dart';
 import 'package:fastaval_app/helpers/formatting.dart';
 import 'package:fastaval_app/models/food.model.dart';
@@ -165,8 +164,8 @@ class ProfileScreen extends StatelessWidget {
             ? buildUsersProgramItems(appCtrl.user.scheduling)
             : Padding(
                 padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
-                child:
-                    Text(tr('profile.noProgramItems'), style: AppTextStyles.normal),
+                child: Text(tr('profile.noProgramItems'),
+                    style: AppTextStyles.normal),
               ),
       ));
 
@@ -251,7 +250,9 @@ class ProfileScreen extends StatelessWidget {
                     Text(
                       title,
                       overflow: TextOverflow.ellipsis,
-                      style: expired ? AppTextStyles.normalDisabled : AppTextStyles.normal,
+                      style: expired
+                          ? AppTextStyles.normalDisabled
+                          : AppTextStyles.normal,
                     ),
                   ],
                 ),
@@ -283,7 +284,8 @@ class ProfileScreen extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
             child: foodList.isNotEmpty
                 ? Text(tr('program.food.ordered'))
-                : Text(tr('program.food.notOrdered'), style: AppTextStyles.normal),
+                : Text(tr('program.food.notOrdered'),
+                    style: AppTextStyles.normal),
           ),
           foodList.isEmpty
               ? SizedBox(height: 0)
@@ -444,7 +446,7 @@ class ProfileScreen extends StatelessWidget {
         ),
       );
 
-  getFoodImage(Food item) {
+  String getFoodImage(Food item) {
     if (item.titleEn.contains('Dinner')) return 'assets/images/dinner.jpg';
     if (item.titleEn.contains('Breakfast')) {
       return 'assets/images/breakfast.jpg';
@@ -496,10 +498,12 @@ class ProfileScreen extends StatelessWidget {
             style: AppTextStyles.normal,
           ),
           if (food.titleEn.contains('Breakfast'))
-            Text(tr('profile.breakfastText'), style: AppTextStyles.normalSubdued),
+            Text(tr('profile.breakfastText'),
+                style: AppTextStyles.normalSubdued),
           SizedBox(height: 10),
           if (foodAvailable == false)
-            Text(tr('profile.foodHandedOut'), style: AppTextStyles.normalSubdued),
+            Text(tr('profile.foodHandedOut'),
+                style: AppTextStyles.normalSubdued),
           if (foodAvailable)
             Text(
               "${tr('profile.handout')}: ${formatDay(food.time)} ${formatTime(food.time)} - ${formatTime(food.timeEnd)}",

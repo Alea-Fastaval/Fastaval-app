@@ -33,17 +33,17 @@ class UserService {
     }
   }
 
-  void setUser(User user) {
+  Future<void> setUser(User user) async {
     String userString = jsonEncode(user);
-    storageService.setString(kUserKey, userString);
+    await storageService.setString(kUserKey, userString);
   }
 
   void removeUser() {
     storageService.deleteString(kUserKey);
   }
 
-  void registerToInfosys(User user) {
-    registerAppToInfosys(user);
+  Future<void> registerToInfosys(User user) async {
+    await registerAppToInfosys(user);
   }
 
   Future<void> registerAppToInfosys(User user) async => await showDialog(
@@ -125,7 +125,8 @@ Future<void> askForTrackingPermission(BuildContext context) async {
   }
 }
 
-showCustomTrackingDialog(BuildContext context) async => await showDialog(
+Future<dynamic> showCustomTrackingDialog(BuildContext context) async =>
+    await showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(tr('login.permissionsWarning.title')),

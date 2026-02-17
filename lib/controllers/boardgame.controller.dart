@@ -22,9 +22,9 @@ class BoardGameController extends GetxController {
   RxBool showSearchClear = false.obs;
   RxBool isLoading = false.obs;
 
-  void init() {
+  Future<void> init() async {
     getBoardGames();
-    fetchAndSetInitialRankings();
+    await fetchAndSetInitialRankings();
   }
 
   void getBoardGames() {

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:flutter/material.dart';
 
 /// Text styles used throughout the Fastaval app.
 ///
@@ -19,7 +19,7 @@ class AppTextStyles {
   // Heading styles
   static const TextStyle cardHeader = TextStyle(
     color: AppColors.textPrimary,
-    fontSize: 20.0,
+    fontSize: 20,
     fontWeight: FontWeight.bold,
   );
 
@@ -31,23 +31,23 @@ class AppTextStyles {
   // Body text styles
   static const TextStyle normal = TextStyle(
     color: AppColors.textPrimary,
-    fontSize: 16.0,
+    fontSize: 16,
   );
 
   static const TextStyle normalBold = TextStyle(
     color: AppColors.textPrimary,
-    fontSize: 16.0,
+    fontSize: 16,
     fontWeight: FontWeight.bold,
   );
 
   static const TextStyle normalDisabled = TextStyle(
     color: AppColors.textDisabled,
-    fontSize: 16.0,
+    fontSize: 16,
   );
 
   static const TextStyle normalClickable = TextStyle(
     color: AppColors.textPrimary,
-    fontSize: 16.0,
+    fontSize: 16,
     decoration: TextDecoration.underline,
     decorationColor: Colors.black45,
   );
@@ -55,13 +55,13 @@ class AppTextStyles {
   // Small text styles
   static const TextStyle normalSubdued = TextStyle(
     color: AppColors.textPrimary,
-    fontSize: 10.0,
+    fontSize: 10,
     fontWeight: FontWeight.normal,
   );
 
   static const TextStyle normalSubduedExpired = TextStyle(
     color: AppColors.textDisabled,
-    fontSize: 10.0,
+    fontSize: 10,
     fontWeight: FontWeight.normal,
   );
 

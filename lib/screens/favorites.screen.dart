@@ -1,10 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/core/theme/app_colors.dart';
-import 'package:fastaval_app/core/theme/app_text_styles.dart';
-import 'package:fastaval_app/core/theme/app_theme.dart';
-import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/helpers/collections.dart';
 import 'package:fastaval_app/helpers/formatting.dart';
 import 'package:fastaval_app/models/activity_item.model.dart';
@@ -75,7 +74,8 @@ class FavoritesScreen extends StatelessWidget {
             ],
           )
         : Padding(
-            child: Text(tr('favorites.noFavorites'), style: AppTextStyles.normal),
+            child:
+                Text(tr('favorites.noFavorites'), style: AppTextStyles.normal),
             padding: EdgeInsets.fromLTRB(16, 48, 16, 48),
           );
   }
@@ -143,7 +143,9 @@ class FavoritesScreen extends StatelessWidget {
                     Text(
                       title,
                       overflow: TextOverflow.ellipsis,
-                      style: expired ? AppTextStyles.normalDisabled : AppTextStyles.normal,
+                      style: expired
+                          ? AppTextStyles.normalDisabled
+                          : AppTextStyles.normal,
                     ),
                   ],
                 ),

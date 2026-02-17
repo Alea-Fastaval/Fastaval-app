@@ -13,7 +13,7 @@ class NotificationController extends GetxController {
   RxInt notificationListUpdatedAt = 0.obs;
   final appController = Get.find<AppController>();
 
-  void init() {
+  Future<void> init() async {
     if (appController.loggedIn.value) {
       getNotifications();
     }
