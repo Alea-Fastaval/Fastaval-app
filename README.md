@@ -36,7 +36,7 @@ lib/
 | `dart format .`                                            | Formats the Dart code according to the Dart style guide                                                    |
 | `dart analyze`                                             | Analyzes the code for issues                                                                               |
 | `flutter test`                                             | Runs all unit and widget tests                                                                             |
-| `flutter build appbundle --no-tree-shake-icons --release` | Builds a release bundle of Android. This is the recommended format for publishing to the Google Play Store |
+| `flutter build appbundle --no-tree-shake-icons --release`  | Builds a release bundle of Android. This is the recommended format for publishing to the Google Play Store |
 | `flutter build ipa`                                        | Builds a release file for iOS                                                                              |
 | `pod update`                                               | Run inside ios folder to update CocoaPods dependencies                                                     |
 
