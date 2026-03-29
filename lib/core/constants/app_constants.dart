@@ -65,7 +65,7 @@ class AppConstants {
       "day3": "09:30 - 17:00",
     },
     "kiosk": {
-      "day1": "08:00 - 00:00",
+      "day1": "08:00 - 20:00",
       "day2": "08:00 - 16:00",
     },
     "ottosLivingRoom": {
