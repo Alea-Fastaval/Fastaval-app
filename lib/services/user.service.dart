@@ -18,7 +18,7 @@ final settingsController = Get.find<SettingsController>();
 final appController = Get.find<AppController>();
 
 class UserService {
-  static String kUserKey = 'USER_KEY25';
+  static String kUserKey = 'USER_KEY26';
   final LocalStorageService storageService = LocalStorageService();
 
   Future<User?> getUserFromStorage() async {

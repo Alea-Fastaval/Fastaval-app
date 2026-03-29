@@ -53,7 +53,7 @@ class NotificationsScreen extends StatelessWidget {
     );
   }
 
-  Widget notificationList(context) {
+  Widget notificationList(BuildContext context) {
     var notifications = notificationCtrl.notificationList.reversed.toList();
 
     return notifications.isNotEmpty
@@ -76,9 +76,13 @@ class NotificationsScreen extends StatelessWidget {
   }
 
   Widget notificationItem(InfosysNotification notification) {
-    var tzOffset =
-        (tz.getLocation('Europe/Copenhagen').currentTimeZone.offset / 1000)
-            .round();
+    var tzOffset = (tz
+                .getLocation('Europe/Copenhagen')
+                .currentTimeZone
+                .offset
+                .inMilliseconds /
+            1000)
+        .round();
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,

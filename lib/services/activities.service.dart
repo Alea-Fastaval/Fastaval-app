@@ -7,7 +7,7 @@ import 'package:fastaval_app/services/local_storage.service.dart';
 import 'package:http/http.dart' as http;
 
 class ActivitiesService {
-  static String kFavoritesKey = 'FAVORITES_KEY25';
+  static String kFavoritesKey = 'FAVORITES_KEY26';
   final LocalStorageService storageService = LocalStorageService();
 
   Future<List> retrieveFavorites() async {

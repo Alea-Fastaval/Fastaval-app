@@ -29,7 +29,7 @@ class ProgramController extends GetxController {
     await getFavoritesFromStorage();
   }
 
-  Future<void> addDayToList(day) async {
+  Future<void> addDayToList(String day) async {
     await activitiesService.getDay(day).then((list) {
       List runlist = [];
       activityItemForDay[day] = list;
