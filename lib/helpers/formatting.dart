@@ -9,7 +9,7 @@ String formatTime(int? time) =>
     DateFormat('HH:mm').format(formatTimestampToDateTime(time!));
 
 DateTime formatTimestampToDateTime(int timeInUnixTime) =>
-    DateTime.fromMillisecondsSinceEpoch(timeInUnixTime * 1000, isUtc: true);
+    DateTime.fromMillisecondsSinceEpoch(timeInUnixTime * 1000);
 
 String getLanguage(String language) {
   switch (language) {
