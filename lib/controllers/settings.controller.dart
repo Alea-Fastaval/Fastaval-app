@@ -11,7 +11,7 @@ class SettingsController extends GetxController {
   final kLangKey = 'LANG_KEY';
   BuildContext? appContext;
 
-  updateLanguage(String name) {
+  void updateLanguage(String name) {
     storageService.setString(kLangKey, name);
     language(name);
     Get.updateLocale(Locale(name));
@@ -20,7 +20,7 @@ class SettingsController extends GetxController {
     }
   }
 
-  init() async {
+  Future<Locale> init() async {
     String foundLanguage = await storageService.getString(kLangKey);
     if (foundLanguage.isEmpty) {
       var defaultLang = Get.deviceLocale!.languageCode == 'da' ? 'da' : 'en';
@@ -32,7 +32,7 @@ class SettingsController extends GetxController {
     return Locale(foundLanguage);
   }
 
-  setContext(BuildContext context) {
+  void setContext(BuildContext context) {
     appContext = context;
   }
 }

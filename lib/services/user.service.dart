@@ -18,7 +18,7 @@ final settingsController = Get.find<SettingsController>();
 final appController = Get.find<AppController>();
 
 class UserService {
-  static String kUserKey = 'USER_KEY25';
+  static String kUserKey = 'USER_KEY26';
   final LocalStorageService storageService = LocalStorageService();
 
   Future<User?> getUserFromStorage() async {
@@ -33,17 +33,17 @@ class UserService {
     }
   }
 
-  setUser(User user) {
+  Future<void> setUser(User user) async {
     String userString = jsonEncode(user);
-    storageService.setString(kUserKey, userString);
+    await storageService.setString(kUserKey, userString);
   }
 
-  removeUser() {
+  void removeUser() {
     storageService.deleteString(kUserKey);
   }
 
-  registerToInfosys(User user) {
-    registerAppToInfosys(user);
+  Future<void> registerToInfosys(User user) async {
+    await registerAppToInfosys(user);
   }
 
   Future<void> registerAppToInfosys(User user) async => await showDialog(
@@ -125,7 +125,8 @@ Future<void> askForTrackingPermission(BuildContext context) async {
   }
 }
 
-showCustomTrackingDialog(BuildContext context) async => await showDialog(
+Future<dynamic> showCustomTrackingDialog(BuildContext context) async =>
+    await showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(tr('login.permissionsWarning.title')),

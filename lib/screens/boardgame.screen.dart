@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
 import 'package:fastaval_app/controllers/boardgame.controller.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/helpers/formatting.dart';
 import 'package:fastaval_app/models/boardgame.model.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
@@ -29,7 +30,7 @@ class BoardgameScreen extends StatelessWidget {
       ),
       body: Container(
         height: double.infinity,
-        decoration: backgroundBoxDecorationStyle,
+        decoration: AppDecorations.backgroundImage,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),
           child: Column(
@@ -100,7 +101,7 @@ class BoardgameScreen extends StatelessWidget {
             child: Text(
               textAlign: TextAlign.center,
               tr('boardgames.noGamesFound'),
-              style: kNormalTextStyle,
+              style: AppTextStyles.normal,
             ),
             padding: EdgeInsets.fromLTRB(0, 48, 0, 48),
           );
@@ -123,7 +124,7 @@ class BoardgameScreen extends StatelessWidget {
                     children: [
                       Text(
                         game.name,
-                        style: kNormalTextBoldStyle,
+                        style: AppTextStyles.normalBold,
                         overflow: TextOverflow.ellipsis,
                       ),
                       Row(
@@ -152,7 +153,7 @@ class BoardgameScreen extends StatelessWidget {
     );
   }
 
-  _launchDDB(int gameID) async {
+  Future<void> _launchDDB(int gameID) async {
     if (gameID > 0) {
       final url = Uri.parse('https://boardgamegeek.com/boardgame/$gameID');
       if (await canLaunchUrl(url)) {

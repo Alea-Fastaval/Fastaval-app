@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/helpers/formatting.dart';
 import 'package:fastaval_app/models/notification.model.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
@@ -28,7 +29,7 @@ class NotificationsScreen extends StatelessWidget {
       ),
       body: Container(
         height: double.infinity,
-        decoration: backgroundBoxDecorationStyle,
+        decoration: AppDecorations.backgroundImage,
         child: SingleChildScrollView(
           physics: AlwaysScrollableScrollPhysics(),
           child: Column(
@@ -52,7 +53,7 @@ class NotificationsScreen extends StatelessWidget {
     );
   }
 
-  Widget notificationList(context) {
+  Widget notificationList(BuildContext context) {
     var notifications = notificationCtrl.notificationList.reversed.toList();
 
     return notifications.isNotEmpty
@@ -68,16 +69,20 @@ class NotificationsScreen extends StatelessWidget {
         : Padding(
             child: Text(
               tr('notifications.noNotificationsFound'),
-              style: kNormalTextStyle,
+              style: AppTextStyles.normal,
             ),
             padding: EdgeInsets.fromLTRB(16, 48, 16, 48),
           );
   }
 
   Widget notificationItem(InfosysNotification notification) {
-    var tzOffset =
-        (tz.getLocation('Europe/Copenhagen').currentTimeZone.offset / 1000)
-            .round();
+    var tzOffset = (tz
+                .getLocation('Europe/Copenhagen')
+                .currentTimeZone
+                .offset
+                .inMilliseconds /
+            1000)
+        .round();
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,11 +93,11 @@ class NotificationsScreen extends StatelessWidget {
             children: [
               Text(
                 formatTime(notification.sendTime + tzOffset),
-                style: kNormalTextBoldStyle,
+                style: AppTextStyles.normalBold,
               ),
               Text(
                 formatDay(notification.sendTime + tzOffset),
-                style: kNormalTextBoldStyle,
+                style: AppTextStyles.normalBold,
               ),
             ],
           ),

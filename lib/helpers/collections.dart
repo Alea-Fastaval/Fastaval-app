@@ -38,6 +38,6 @@ Color getFoodColor(Food item) {
   return Color(0xFFD4E9EC);
 }
 
-String getActivityImageLocation(type) {
+String getActivityImageLocation(String type) {
   return activityImageMap[type] ?? 'assets/images/fastaval.jpg';
 }

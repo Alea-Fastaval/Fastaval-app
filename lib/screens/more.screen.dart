@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/boardgame.controller.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
+import 'package:fastaval_app/core/theme/app_text_styles.dart';
 import 'package:fastaval_app/screens/boardgame-voting.screen.dart';
 import 'package:fastaval_app/screens/boardgame.screen.dart';
 import 'package:fastaval_app/screens/notifications.screen.dart';
@@ -34,11 +36,11 @@ class MoreScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colorOrangeDark,
-        foregroundColor: colorWhite,
+        backgroundColor: AppColors.primary,
+        foregroundColor: AppColors.background,
         toolbarHeight: 40,
         centerTitle: true,
-        titleTextStyle: kAppBarTextStyle,
+        titleTextStyle: AppTextStyles.appBarTitle,
         title: Text(tr('screenTitle.more')),
       ),
       body: AnnotatedRegion<SystemUiOverlayStyle>(
@@ -46,7 +48,7 @@ class MoreScreen extends StatelessWidget {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: backgroundBoxDecorationStyle,
+          decoration: AppDecorations.backgroundImage,
           child: Obx(
             () => Column(
               children: [
@@ -147,7 +149,7 @@ class MoreScreen extends StatelessWidget {
                             icon: FaIcon(
                               FontAwesomeIcons.facebook,
                               size: 40,
-                              color: colorBlack,
+                              color: AppColors.textPrimary,
                             ),
                           ),
                           SizedBox(width: 24),
@@ -164,7 +166,7 @@ class MoreScreen extends StatelessWidget {
                             icon: FaIcon(
                               FontAwesomeIcons.instagram,
                               size: 40,
-                              color: colorBlack,
+                              color: AppColors.textPrimary,
                             ),
                           ),
                           SizedBox(width: 24),
@@ -181,7 +183,7 @@ class MoreScreen extends StatelessWidget {
                             icon: FaIcon(
                               FontAwesomeIcons.xTwitter,
                               size: 40,
-                              color: colorBlack,
+                              color: AppColors.textPrimary,
                             ),
                           ),
                           SizedBox(width: 24),
@@ -198,7 +200,7 @@ class MoreScreen extends StatelessWidget {
                             icon: FaIcon(
                               FontAwesomeIcons.envelopeOpenText,
                               size: 40,
-                              color: colorBlack,
+                              color: AppColors.textPrimary,
                             ),
                           ),
                         ],
@@ -206,7 +208,7 @@ class MoreScreen extends StatelessWidget {
                       SizedBox(height: 8),
                       Text(
                         tr('more.socialMedia'),
-                        style: kNormalTextStyle,
+                        style: AppTextStyles.normal,
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 24),
@@ -216,7 +218,7 @@ class MoreScreen extends StatelessWidget {
                           padding: EdgeInsets.only(bottom: 8, right: 16),
                           child: Obx(() => Text(
                                 '${appCtrl.packageInfo.value?.version} © Fastaval IT',
-                                style: kNormalTextSubdued,
+                                style: AppTextStyles.normalSubdued,
                               )),
                         ),
                       ),

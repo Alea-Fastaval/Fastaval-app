@@ -1,9 +1,9 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/notification.controller.dart';
 import 'package:fastaval_app/controllers/program.controller.dart';
+import 'package:fastaval_app/core/theme/app_colors.dart';
 import 'package:fastaval_app/screens/favorites.screen.dart';
 import 'package:fastaval_app/screens/info.screen.dart';
 import 'package:fastaval_app/screens/login.screen.dart';
@@ -18,6 +18,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   HomeScreenState createState() => HomeScreenState();
 }
@@ -61,8 +63,8 @@ class HomeScreenState extends State<HomeScreen> {
             onTap: onNavClick,
             items: bottomNavItems(),
             selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-            backgroundColor: colorOrangeDark,
-            selectedItemColor: colorBlack,
+            backgroundColor: AppColors.primary,
+            selectedItemColor: AppColors.textPrimary,
             unselectedItemColor: Colors.black54,
           ),
         ),
@@ -70,12 +72,12 @@ class HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  onNavClick(int index) {
+  void onNavClick(int index) {
     HapticFeedback.selectionClick();
     appCtrl.updateNavIndex(index);
   }
 
-  bottomNavItems() => [
+  List<BottomNavigationBarItem> bottomNavItems() => [
         appCtrl.loggedIn.value == true
             ? BottomNavigationBarItem(
                 activeIcon: Icon(Icons.person),

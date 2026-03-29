@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fastaval_app/constants/styles.constant.dart';
 import 'package:fastaval_app/controllers/app.controller.dart';
 import 'package:fastaval_app/controllers/boardgame.controller.dart';
+import 'package:fastaval_app/core/theme/app_decorations.dart';
 import 'package:fastaval_app/models/activity.model.dart';
 import 'package:fastaval_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class BoardgameVotingScreen extends StatelessWidget {
       ),
       body: Container(
         height: double.infinity,
-        decoration: backgroundBoxDecorationStyle,
+        decoration: AppDecorations.backgroundImage,
         padding: EdgeInsets.fromLTRB(8, 16, 8, 0),
         child: Obx(() {
           return Column(
@@ -181,7 +181,7 @@ class BoardgameVotingScreen extends StatelessWidget {
               ),
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8),
                   child: Obx(() {
                     return ElevatedButton(
                       onPressed: () {

@@ -10,7 +10,7 @@ class ConfigService {
   static final ConfigService instance = ConfigService._privateConstructor();
   final FirebaseRemoteConfig _remoteConfig = FirebaseRemoteConfig.instance;
 
-  initConfig() async {
+  Future<void> initConfig() async {
     await _remoteConfig.setDefaults({
       'API': 'https://infosys.fastaval.dk/api',
       'APItest': 'https://infosys-test.fastaval.dk/api',
