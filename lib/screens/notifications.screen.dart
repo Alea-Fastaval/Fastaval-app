@@ -8,7 +8,6 @@ import 'package:fastaval_app/widgets/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:timezone/standalone.dart' as tz;
 
 class NotificationsScreen extends StatelessWidget {
   final notificationCtrl = Get.find<NotificationController>();
@@ -76,14 +75,6 @@ class NotificationsScreen extends StatelessWidget {
   }
 
   Widget notificationItem(InfosysNotification notification) {
-    var tzOffset = (tz
-                .getLocation('Europe/Copenhagen')
-                .currentTimeZone
-                .offset
-                .inMilliseconds /
-            1000)
-        .round();
-
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -92,11 +83,11 @@ class NotificationsScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                formatTime(notification.sendTime + tzOffset),
+                formatTime(notification.sendTime),
                 style: AppTextStyles.normalBold,
               ),
               Text(
-                formatDay(notification.sendTime + tzOffset),
+                formatDay(notification.sendTime),
                 style: AppTextStyles.normalBold,
               ),
             ],

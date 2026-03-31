@@ -51,12 +51,20 @@ class AppController extends GetxController {
     if (user.id == 0) return;
 
     fetchingUser(true);
-    User newUser = await fetchUser(user.id.toString(), user.password);
-    newUser.password = user.password;
+    try {
+      User newUser = await fetchUser(user.id.toString(), user.password);
+      newUser.password = user.password;
 
-    await UserService().setUser(newUser);
-    updateUser(newUser);
-    fetchingUser(false);
+      await UserService().setUser(newUser);
+      updateUser(newUser);
+    } catch (e) {
+      // If fetching the user fails (e.g. invalid stored credentials), logout
+      // and prevent the exception from bubbling up during app init.
+      logout();
+      return;
+    } finally {
+      fetchingUser(false);
+    }
   }
 
   Future<void> login(String id, String password) async {
@@ -75,7 +83,12 @@ class AppController extends GetxController {
   }
 
   void logout() {
-    var boardCtrl = Get.find<BoardGameController>();
+    // Only attempt to access BoardGameController if it's been registered
+    BoardGameController? boardCtrl;
+    if (Get.isRegistered<BoardGameController>()) {
+      boardCtrl = Get.find<BoardGameController>();
+    }
+
     UserService().removeUser();
     user.id = 0;
     user.password = '';
@@ -83,7 +96,10 @@ class AppController extends GetxController {
     updateNavIndex(0);
     Fluttertoast.showToast(msg: tr('logout.message'));
 
-    boardCtrl.availableBoardgames.clear();
-    boardCtrl.chosenBoardgames.clear();
+    // If the controller exists, clear its selections. Otherwise skip.
+    if (boardCtrl != null) {
+      boardCtrl.availableBoardgames.clear();
+      boardCtrl.chosenBoardgames.clear();
+    }
   }
 }

@@ -25,9 +25,6 @@ class MoreScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
-    var newsletter = Uri.parse(
-      'https://fastaval.us21.list-manage.com/subscribe?u=0929f085b293ddfa9eb2bc60a&id=13f4440b66',
-    );
     var x = Uri.parse('https://twitter.com/fastaval');
     var facebook = Uri.parse('https://www.facebook.com/Fastaval');
     var instagram = Uri.parse('https://www.instagram.com/fastaval/');
@@ -186,30 +183,7 @@ class MoreScreen extends StatelessWidget {
                               color: AppColors.textPrimary,
                             ),
                           ),
-                          SizedBox(width: 24),
-                          IconButton(
-                            onPressed: () => canLaunchUrl(newsletter).then(
-                              (allowed) => {
-                                if (allowed)
-                                  launchUrl(
-                                    newsletter,
-                                    mode: LaunchMode.externalApplication,
-                                  ),
-                              },
-                            ),
-                            icon: FaIcon(
-                              FontAwesomeIcons.envelopeOpenText,
-                              size: 40,
-                              color: AppColors.textPrimary,
-                            ),
-                          ),
                         ],
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        tr('more.socialMedia'),
-                        style: AppTextStyles.normal,
-                        textAlign: TextAlign.center,
                       ),
                       SizedBox(height: 24),
                       Align(

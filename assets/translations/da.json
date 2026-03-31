@@ -22,6 +22,10 @@
       "show": "Vis kort"
     }
   },
+  "areas": {
+    "commonArea": "Fællesområdet",
+    "niche": "Nichen"
+  },
   "boardgames": {
     "fastavalGame": "Er et Fastaval spil",
     "gameAvailable": {
@@ -135,28 +139,23 @@
       "store1": {
         "day1": "Onsdag",
         "day2": "Tor-Lør",
-        "day3": "Søndag",
-        "title": "Epic Panda @ B45"
+        "day3": "Søndag"
       },
       "store2": {
         "day1": "Fredag",
         "day2": "Lørdag",
-        "day3": "Søndag",
-        "title": "Allroleplaying @ A07"
+        "day3": "Søndag"
       },
       "store3": {
         "day1": "Onsdag",
         "day2": "Tor-Lør",
-        "day3": "Søndag",
-        "title": "Grandmas Gaming Goodies @ A07"
+        "day3": "Søndag"
       },
       "store4": {
-        "day1": "Tor-Lør",
-        "title": "Bunkern Esbjerg @ Fællesområdet"
+        "day1": "Tor-Lør"
       },
       "store5": {
-        "day1": "Lørdag",
-        "title": "Artist Alley popup shops @ Fællesområdet"
+        "day1": "Lørdag"
       },
       "title": "Butikker"
     },
@@ -270,6 +269,36 @@
     "wednesday": {
       "long": "Onsdag",
       "short": "Ons"
+    }
+  },
+  "days": {
+    "wed": {
+      "long": "Onsdag",
+      "short": "Ons"
+    },
+    "thu": {
+      "long": "Torsdag",
+      "short": "Tor"
+    },
+    "fri": {
+      "long": "Fredag",
+      "short": "Fre"
+    },
+    "sat": {
+      "long": "Lørdag",
+      "short": "Lør"
+    },
+    "sun": {
+      "long": "Søndag",
+      "short": "Søn"
+    },
+    "mon": {
+      "long": "Mandag",
+      "short": "Man"
+    },
+    "tue": {
+      "long": "Tirsdag",
+      "short": "Tir"
     }
   },
   "screenTitle": {
