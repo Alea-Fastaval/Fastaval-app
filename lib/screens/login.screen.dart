@@ -55,6 +55,8 @@ class LoginScreen extends StatelessWidget {
   Widget _buildLoginButton() => SizedBox(
         width: double.infinity,
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.white, elevation: 2),
           onPressed: () async => {
             HapticFeedback.heavyImpact(),
             await appCtrl.login(userIdInput.text, passwordInput.text),

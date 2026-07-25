@@ -132,6 +132,8 @@ class ProfileScreen extends StatelessWidget {
         child: SizedBox(
           width: double.infinity,
           child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white, elevation: 2),
             onPressed: () => {HapticFeedback.heavyImpact(), appCtrl.logout()},
             child: Text(
               tr('login.signOut'),

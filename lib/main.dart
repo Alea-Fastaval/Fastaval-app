@@ -31,8 +31,8 @@ void main() async {
 
   await Get.put(SettingsController()).init();
   await Get.put(AppController()).init();
-  await Get.put(ProgramController()).init();
   await Get.put(BoardGameController()).init();
+  await Get.put(ProgramController()).init();
   await Get.put(NotificationController()).init();
 
   runApp(
