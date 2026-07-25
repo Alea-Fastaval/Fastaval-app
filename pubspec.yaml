@@ -51,7 +51,7 @@ dependencies:
   photo_view: ^0.15.0
   
   # Utilities
-  app_tracking_transparency: ^2.0.6+1
+  app_tracking_transparency: ^2.0.7
   flutter_local_notifications: ^21.0.0
   fluttertoast: ^9.0.0
   font_awesome_flutter: ^11.0.0
