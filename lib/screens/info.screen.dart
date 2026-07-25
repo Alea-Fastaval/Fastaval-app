@@ -43,7 +43,7 @@ class InfoScreen extends StatelessWidget {
                       SizedBox(height: 12),
                       _buildSafeFastavalCard(),
                       _buildOpenHoursCard(),
-                      //_buildWifiCard(),
+                      _buildWifiCard(),
                       _buildLostFoundCard(),
                       _buildTransportCard(),
                       _buildFastaWearCard(),
