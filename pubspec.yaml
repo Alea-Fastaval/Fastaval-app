@@ -53,7 +53,7 @@ dependencies:
   # Utilities
   app_tracking_transparency: ^2.0.6+1
   flutter_local_notifications: ^22.2.0
-  fluttertoast: ^9.0.0
+  fluttertoast: ^10.0.0
   font_awesome_flutter: ^11.0.0
   http: ^1.6.0
   shared_preferences: ^2.5.5
